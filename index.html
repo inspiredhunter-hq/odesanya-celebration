@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celebrating the Life of Mrs Clementina Modupeola Odesanya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #7D3248;
+    --purple-mid: #A85470;
+    --purple-light: #D08898;
+    --gold: #C9A84C;
+    --gold-light: #E4C97E;
+    --gold-pale: #F5E9C8;
+    --cream: #FBF7F0;
+    --warm-white: #FFFDF9;
+    --text-dark: #2A1218;
+    --text-mid: #5A2E3C;
+    --text-light: #9A7080;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(251, 247, 240, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--purple);
+    letter-spacing: 0.03em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    background: #FDF0E6;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(125,50,72,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(201,168,76,0.1) 0%, transparent 60%);
+  }
+  .hero-card {
+    position: relative;
+    max-width: 340px;
+    width: 80%;
+    margin: 0 auto 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.2s forwards;
+    box-shadow: 0 20px 60px rgba(125,50,72,0.15), 0 4px 16px rgba(125,50,72,0.08);
+    border-radius: 2px;
+  }
+  .hero-card img {
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+  }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--text-mid);
+    margin: 0 auto;
+    max-width: 500px;
+    line-height: 1.75;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+    position: relative;
+  }
+  .hero-divider {
+    margin: 2rem auto 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.1s forwards;
+    position: relative;
+  }
+  .hero-divider span {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-light));
+  }
+  .hero-divider span:last-child {
+    background: linear-gradient(90deg, var(--gold-light), transparent);
+  }
+  .hero-divider .diamond {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+  .scroll-cue {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.5s forwards;
+  }
+  .scroll-cue span {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .scroll-arrow {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(180deg, var(--gold-light), transparent);
+    animation: pulse 2s 2s infinite;
+  }
+
+  /* ── RSVP BANNER (TOP) ── */
+  .rsvp-banner {
+    background: var(--purple);
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .rsvp-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(201,168,76,0.1) 0%, transparent 70%);
+  }
+  .rsvp-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .rsvp-banner .section-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    position: relative;
+  }
+  .rsvp-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    color: var(--gold-pale);
+    margin-bottom: 0.8rem;
+    position: relative;
+  }
+  .rsvp-banner p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(245,233,200,0.75);
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+    position: relative;
+  }
+  .rsvp-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--purple);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    border: 1px solid var(--gold);
+    transition: all 0.25s;
+    position: relative;
+  }
+  .rsvp-btn:hover { background: var(--gold-pale); border-color: var(--gold-pale); }
+  .rsvp-scroll-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: rgba(245,233,200,0.45);
+    margin-top: 1.2rem;
+    position: relative;
+  }
+
+  /* ── INTRO BANNER ── */
+  .intro-banner {
+    background: var(--cream);
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .intro-banner p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.15rem, 2.8vw, 1.7rem);
+    font-style: italic;
+    color: var(--text-mid);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.85;
+  }
+  .intro-banner strong { color: var(--purple); font-style: normal; font-weight: 600; }
+
+  /* ── EVENT SECTIONS ── */
+  .event-section {
+    padding: 7rem 2rem;
+    position: relative;
+  }
+  .event-section:nth-child(odd) { background: var(--warm-white); }
+  .event-section:nth-child(even) { background: var(--cream); }
+  .section-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .section-inner.reverse { direction: rtl; }
+  .section-inner.reverse > * { direction: ltr; }
+  .event-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .event-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--gold);
+  }
+  .event-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 400;
+    color: rgba(74, 32, 96, 0.07);
+    line-height: 1;
+    margin-bottom: -1rem;
+    font-style: italic;
+  }
+  .event-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 600;
+    color: var(--purple);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+  .event-date-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+  .event-day {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--purple-mid);
+  }
+  .event-date {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--text-mid);
+  }
+  .time-pill {
+    display: inline-block;
+    background: var(--gold-pale);
+    border: 1px solid var(--gold-light);
+    border-radius: 2px;
+    padding: 0.25rem 0.9rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--purple);
+    margin: 1rem 0;
+  }
+  .event-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-mid);
+    margin-bottom: 1.8rem;
+  }
+
+  /* ── DETAIL CARDS ── */
+  .detail-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.4rem;
+  }
+  .detail-card {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+    padding: 0.9rem 1rem;
+    background: var(--cream);
+    border-left: 2px solid var(--gold-light);
+  }
+  .event-section:nth-child(even) .detail-card { background: var(--warm-white); }
+  .detail-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .detail-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.2rem;
+  }
+  .detail-value { font-size: 0.88rem; color: var(--text-dark); line-height: 1.5; }
+
+  /* ── RIGHT COLUMN: PHOTO + MAP ── */
+  .venue-visual { display: flex; flex-direction: column; gap: 1rem; }
+  .venue-photo {
+    width: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .venue-photo img { width: 100%; display: block; }
+  .map-block {
+    border-radius: 2px;
+    overflow: hidden;
+    background: #E8E0F0;
+  }
+  .map-block iframe { width: 100%; height: 240px; border: none; display: block; }
+  .map-caption {
+    padding: 0.7rem 1rem;
+    background: var(--purple);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .map-caption span {
+    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.06em; color: var(--gold-pale);
+  }
+  .map-link {
+    font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold-light); text-decoration: none; transition: color 0.2s;
+  }
+  .map-link:hover { color: var(--gold-pale); }
+
+  /* ── PARKING MAP BLOCK ── */
+  .parking-block { margin-top: 0.5rem; }
+  .parking-map-img {
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid rgba(201,168,76,0.3);
+    display: block;
+  }
+  .parking-legend {
+    background: var(--purple);
+    padding: 0.9rem 1rem;
+    border-radius: 0 0 2px 2px;
+  }
+  .parking-legend-title {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .parking-legend-items { display: flex; flex-direction: column; gap: 0.3rem; }
+  .parking-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.78rem;
+    color: var(--gold-pale);
+  }
+  .legend-num {
+    background: var(--gold);
+    color: var(--purple);
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; font-weight: 700; flex-shrink: 0;
+  }
+
+  /* ── DIRECTIONS ── */
+  .directions-block {
+    margin-top: 1rem;
+    background: var(--cream);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .event-section:nth-child(even) .directions-block { background: var(--warm-white); }
+  .direction-tab {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .direction-tab:last-child { border-bottom: none; }
+  .direction-heading {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .direction-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text-mid);
+  }
+  .taxi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem 1rem;
+    margin-top: 0.4rem;
+  }
+  .taxi-item { font-size: 0.82rem; color: var(--text-dark); }
+
+  /* ── ATTIRE ── */
+  .attire-section {
+    background: var(--purple);
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .attire-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 80% at 0% 50%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 100% 50%, rgba(201,168,76,0.06) 0%, transparent 60%);
+  }
+  .attire-section .section-label {
+    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; position: relative;
+  }
+  .attire-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 400; font-style: italic; color: var(--gold-pale);
+    margin-bottom: 1rem; position: relative;
+  }
+  .attire-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-style: italic;
+    color: rgba(245, 233, 200, 0.75);
+    max-width: 520px; margin: 0 auto 3rem;
+    line-height: 1.8; position: relative;
+  }
+  .attire-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(201,168,76,0.2);
+    position: relative;
+  }
+  .attire-card {
+    background: rgba(74, 32, 96, 0.6);
+    padding: 2.2rem 2rem;
+    text-align: left;
+    backdrop-filter: blur(4px);
+  }
+  .attire-day {
+    font-size: 0.55rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
+  }
+  .attire-who {
+    font-family: 'Playfair Display', serif; font-size: 1.1rem;
+    font-weight: 600; color: var(--gold-pale); margin-bottom: 0.4rem;
+  }
+  .attire-what {
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+    font-style: italic; color: rgba(245,233,200,0.75); line-height: 1.5;
+  }
+  .colour-swatch { display: flex; gap: 0.4rem; margin-top: 0.8rem; }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* ── ASO EBI ── */
+  .aso-ebi-section {
+    background: var(--cream);
+    padding: 6rem 2rem; text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+  .aso-ebi-section .section-label {
+    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+  }
+  .aso-ebi-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400; color: var(--purple); margin-bottom: 1rem;
+  }
+  .aso-ebi-section p {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+    font-style: italic; color: var(--text-mid);
+    max-width: 560px; margin: 0 auto 2rem; line-height: 1.85;
+  }
+  .outline-btn {
+    display: inline-block; background: transparent; color: var(--purple);
+    text-decoration: none; font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 0.9rem 2.4rem; border: 1.5px solid var(--purple); transition: all 0.25s;
+  }
+  .outline-btn:hover { background: var(--purple); color: var(--gold-pale); }
+
+  /* ── RSVP BOTTOM ── */
+  .rsvp-section {
+    background: var(--warm-white); padding: 7rem 2rem;
+    text-align: center; position: relative;
+  }
+  .rsvp-section::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .rsvp-section .section-label {
+    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+  }
+  .rsvp-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 400;
+    color: var(--purple); margin-bottom: 1rem;
+  }
+  .rsvp-section p {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+    font-style: italic; color: var(--text-mid);
+    max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.8;
+  }
+  .rsvp-btn-dark {
+    display: inline-block; background: var(--purple); color: var(--gold-pale);
+    text-decoration: none; font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 1rem 2.8rem; border: 1px solid var(--purple);
+    transition: all 0.25s; position: relative; overflow: hidden;
+  }
+  .rsvp-btn-dark::before {
+    content: ''; position: absolute; inset: 0; background: var(--gold);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+  }
+  .rsvp-btn-dark:hover::before { transform: scaleX(1); }
+  .rsvp-btn-dark span { position: relative; z-index: 1; }
+  .rsvp-btn-dark:hover span { color: var(--purple); }
+
+  /* ── MEMORIAL ── */
+  .memorial-section {
+    background: var(--cream); padding: 5rem 2rem; text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+  .memorial-section p {
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+    color: var(--text-light); margin-bottom: 0.6rem;
+  }
+  .memorial-section a {
+    color: var(--purple-mid); text-decoration: none;
+    border-bottom: 1px solid rgba(168,84,112,0.3); transition: border-color 0.2s;
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic;
+  }
+  .memorial-section a:hover { border-color: var(--purple); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--purple); padding: 2.5rem 2rem; text-align: center;
+  }
+  footer p {
+    font-family: 'Cormorant Garamond', serif; font-size: 0.95rem;
+    font-style: italic; color: rgba(245,233,200,0.5);
+  }
+  footer strong { color: var(--gold-light); font-style: normal; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 720px) {
+    .section-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .section-inner.reverse { direction: ltr; }
+    .nav-links { display: none; }
+    .event-number { font-size: 3.5rem; }
+    .attire-grid { grid-template-columns: 1fr; }
+    .taxi-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <span class="nav-name">Mrs Clementina Modupeola Odesanya</span>
+  <ul class="nav-links">
+    <li><a href="#service-of-songs">Service of Songs</a></li>
+    <li><a href="#funeral">Funeral Service</a></li>
+    <li><a href="#celebration">Celebration of Life</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-card">
+    <img src="Mum's Funeral Invitation.jpg" alt="In loving memory of Mrs Clementina Modupeola Odesanya, 27 May 1935 – 19 May 2026">
+  </div>
+  <p class="hero-tagline">
+    We gather to give thanks for a life beautifully and faithfully lived —
+    ninety years of love, laughter and grace.
+  </p>
+  <div class="hero-divider">
+    <span></span>
+    <div class="diamond"></div>
+    <span></span>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll to explore</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ═══ RSVP — TOP ═══ -->
+<div class="rsvp-banner" id="rsvp">
+  <div class="section-label">Kindly Respond</div>
+  <h2>RSVP</h2>
+  <p>
+    The Celebration of Life venue has limited capacity —
+    RSVP is essential to secure your place.
+  </p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUfSHDqJNqSdv7izdyEvWk32y7wJe6-JGBn3F2M7jGxRTnzg/viewform"
+     target="_blank" rel="noopener" class="rsvp-btn">
+    Confirm your attendance
+  </a>
+  <p class="rsvp-scroll-note">Scroll down for full details of each event.</p>
+</div>
+
+<!-- ═══ INTRO BANNER ═══ -->
+<div class="intro-banner reveal">
+  <p>
+    You are warmly invited to join the family of <strong>Mrs Clementina Modupeola Odesanya</strong>
+    as we celebrate her homegoing across two days of remembrance, worship and joyful reunion.
+    Please find full details for each event below.
+  </p>
+</div>
+
+<!-- ═══ EVENT 1: SERVICE OF SONGS ═══ -->
+<section class="event-section" id="service-of-songs">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="event-label">Event One</div>
+      <div class="event-number">01</div>
+      <h2 class="event-title">Service of Songs</h2>
+      <div class="event-date-row">
+        <span class="event-day">Thursday</span>
+        <span class="event-date">23 July 2026</span>
+      </div>
+      <div class="time-pill">6:30 pm</div>
+      <p class="event-body">
+        A heartfelt evening of music, tribute and celebration. Family will set the tone —
+        expect song, stories and moments that honour a life well lived. All are welcome
+        to come and share.
+      </p>
+      <div class="detail-cards">
+        <div class="detail-card">
+          <span class="detail-icon">🕍</span>
+          <div>
+            <div class="detail-label">Venue</div>
+            <div class="detail-value">St Etheldreda's Church</div>
+          </div>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">📍</span>
+          <div>
+            <div class="detail-label">Address</div>
+            <div class="detail-value">Fore Street, Old Hatfield, AL9 5AN</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PARKING -->
+      <div style="margin-top: 1.2rem;">
+        <div class="event-label" style="margin-bottom: 0.8rem;">Parking &amp; Travel</div>
+        <div class="detail-cards" style="margin-bottom: 0;">
+          <div class="detail-card">
+            <span class="detail-icon">🅿️</span>
+            <div>
+              <div class="detail-label">Free Parking — Hatfield Park</div>
+              <div class="detail-value">
+                Do <strong>NOT</strong> park on Fore Street.<br>
+                Enter via <strong>George's Gate</strong> (location 1 on the map).
+                Follow the road past Station Lodge to the mini roundabout with the Citroën dealership.
+                The <strong>Car and Coach Park</strong> is on your left (location 2).<br><br>
+                At the gate, press <strong>'Security'</strong> on the access panel — the gate will open for you.<br><br>
+                <strong>Sat Nav postcode:</strong> AL9 5HX
+              </div>
+            </div>
+          </div>
+          <div class="detail-card">
+            <span class="detail-icon">🚻</span>
+            <div>
+              <div class="detail-label">Please Note — Toilets</div>
+              <div class="detail-value">
+                There are <strong>no toilets inside the church</strong>. If you are travelling directly from work or a long journey, please note that the nearest toilets are located on the Hatfield House estate — a short walk from the Car and Coach Park.
+              </div>
+            </div>
+          </div>
+          <div class="detail-card">
+            <span class="detail-icon">🚆</span>
+            <div>
+              <div class="detail-label">By Train</div>
+              <div class="detail-value">
+                <strong>Hatfield Station</strong><br>
+                Hatfield, Hertfordshire AL9 5AB<br>
+                A short walk or taxi from the station to St Etheldreda's Church.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="venue-visual">
+        <div class="venue-photo">
+          <img src="St Etheralda's Church Hatfield.webp" alt="St Etheldreda's Church, Old Hatfield">
+        </div>
+        <div class="parking-block">
+          <img src="hatfield House Visitor map.png" alt="Hatfield House Visitor Map" class="parking-map-img">
+          <div class="parking-legend">
+            <div class="parking-legend-title">Key locations on the map</div>
+            <div class="parking-legend-items">
+              <div class="parking-legend-item">
+                <div class="legend-num">1</div>
+                <span>George's Gate — enter here for parking</span>
+              </div>
+              <div class="parking-legend-item">
+                <div class="legend-num">2</div>
+                <span>Car and Coach Park — free parking</span>
+              </div>
+              <div class="parking-legend-item">
+                <div class="legend-num">5</div>
+                <span>St Etheldreda's Church — the venue</span>
+              </div>
+              <div class="parking-legend-item">
+                <div class="legend-num" style="font-size:0.6rem;">WC</div>
+                <span>Toilets — near the Stable Yard (11), a short walk from the car park</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EVENT 2: FUNERAL SERVICE ═══ -->
+<section class="event-section" id="funeral">
+  <div class="section-inner reverse">
+    <div class="reveal">
+      <div class="event-label">Event Two</div>
+      <div class="event-number">02</div>
+      <h2 class="event-title">Funeral Service &amp; Interment</h2>
+      <div class="event-date-row">
+        <span class="event-day">Friday</span>
+        <span class="event-date">24 July 2026</span>
+      </div>
+      <div class="time-pill">Please arrive by 1:00 pm</div>
+      <p class="event-body">
+        A chapel service followed immediately by interment.
+        All are welcome.
+      </p>
+      <div class="detail-cards">
+        <div class="detail-card">
+          <span class="detail-icon">🌿</span>
+          <div>
+            <div class="detail-label">Venue</div>
+            <div class="detail-value">Woollensbrook Cemetery &amp; Crematorium</div>
+          </div>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">📍</span>
+          <div>
+            <div class="detail-label">Address</div>
+            <div class="detail-value">Hertford Road, Hoddesdon, Herts, EN11 9BN</div>
+          </div>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">🅿️</span>
+          <div>
+            <div class="detail-label">Parking</div>
+            <div class="detail-value">Onsite parking available</div>
+          </div>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">📞</span>
+          <div>
+            <div class="detail-label">Tel</div>
+            <div class="detail-value">01992 705900</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIRECTIONS -->
+      <div class="directions-block">
+        <div class="direction-tab">
+          <div class="direction-heading">From the North</div>
+          <div class="direction-text">
+            Follow A10 south and leave at the Hoddesdon Junction (A1170).
+            At the roundabout take the 1st exit onto Dinant Link Rd.
+            At the next roundabout take the 1st exit onto Amwell St/A1170.
+            Pass 'The Sun' public house on your left.
+            At the roundabout take the 1st exit onto Hertford Rd/B1197.
+            Follow the road for half a mile — after passing under the bridge the crematorium is on the immediate left.
+          </div>
+        </div>
+        <div class="direction-tab">
+          <div class="direction-heading">From the South (M25)</div>
+          <div class="direction-text">
+            Leave the M25 at Junction A10 and travel north for approximately 5 miles.
+            Leave the A10 at the Hoddesdon Junction (A1170).
+            At the roundabout take the 2nd exit onto Dinant Link Rd.
+            At the next roundabout take the 1st exit onto Amwell St/A1170.
+            Pass 'The Sun' public house on your left.
+            At the roundabout take the 1st exit onto Hertford Rd/B1197.
+            Follow the road for half a mile — after passing under the bridge the crematorium is on the immediate left.
+          </div>
+        </div>
+        <div class="direction-tab">
+          <div class="direction-heading">By Train</div>
+          <div class="direction-text">
+            Greater Anglia trains run from London Liverpool Street to <strong>Broxbourne Station</strong>.
+            Broxbourne is approximately a 5-minute taxi journey to Woollensbrook.
+          </div>
+          <div style="margin-top: 0.8rem;">
+            <div class="direction-heading">Local Taxis</div>
+            <div class="taxi-grid">
+              <div class="taxi-item">Acre Cars (Ware) — 01992 451111</div>
+              <div class="taxi-item">AAA Taxis (Hoddesdon) — 01992 469811</div>
+              <div class="taxi-item">Herts Taxis (Hertford) — 07909 788336</div>
+              <div class="taxi-item">Broxbourne Station Cars — 01992 464007</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="venue-visual">
+        <div class="venue-photo">
+          <img src="Wollesnbrook Chapel.jpg" alt="Woollensbrook Cemetery & Crematorium Chapel">
+        </div>
+        <div class="map-block">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6983.0412343326925!2d-0.03134278164877318!3d51.771839199508854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876273464b04177%3A0xca558978c0b1130e!2sThe+Chalet%2C+Hoddesdon+EN11+9BN!5e0!3m2!1sen!2suk!4v1485439990418"
+            title="Woollensbrook Cemetery map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div class="map-caption">
+            <span>Woollensbrook Cemetery · EN11 9BN</span>
+            <a class="map-link" href="https://maps.google.com/?q=Woollensbrook+Cemetery+Hertford+Road+Hoddesdon+EN11+9BN" target="_blank" rel="noopener">
+              Open in Maps ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EVENT 3: CELEBRATION OF LIFE ═══ -->
+<section class="event-section" id="celebration">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="event-label">Event Three</div>
+      <div class="event-number">03</div>
+      <h2 class="event-title">Celebration of Life</h2>
+      <div class="event-date-row">
+        <span class="event-day">Friday</span>
+        <span class="event-date">24 July 2026</span>
+      </div>
+      <div class="time-pill">Doors open 4:00 pm &nbsp;·&nbsp; Closes 10:00 pm</div>
+      <p class="event-body">
+        Join the family for an evening of celebration, good food and joyful fellowship
+        in honour of Mum. This venue has limited capacity — please RSVP to secure your place.
+      </p>
+      <div class="detail-cards">
+        <div class="detail-card">
+          <span class="detail-icon">🏛️</span>
+          <div>
+            <div class="detail-label">Venue</div>
+            <div class="detail-value">The Palace Banqueting Suite</div>
+          </div>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">📍</span>
+          <div>
+            <div class="detail-label">Address</div>
+            <div class="detail-value">112 Brooker Road, Waltham Abbey, EN9 1JH</div>
+          </div>
+        </div>
+        <div class="detail-card">
+          <span class="detail-icon">🌐</span>
+          <div>
+            <div class="detail-label">Venue website</div>
+            <div class="detail-value">
+              <a href="https://palacebanqueting.co.uk" target="_blank" rel="noopener"
+                style="color: var(--purple-mid); text-decoration: none; border-bottom: 1px solid rgba(168,84,112,0.3);">
+                palacebanqueting.co.uk ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="https://forms.gle/ynUQF5sc5EUZ4ubd6" target="_blank" rel="noopener" class="outline-btn" style="margin-top: 0.5rem;">
+        Register Interest
+      </a>
+    </div>
+    <div class="reveal">
+      <div class="map-block">
+        <iframe
+          src="https://maps.google.com/maps?q=112+Brooker+Road+Waltham+Abbey+EN9+1JH&output=embed"
+          title="The Palace Banqueting Suite map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-caption">
+          <span>The Palace Banqueting Suite · EN9 1JH</span>
+          <a class="map-link" href="https://maps.google.com/?q=112+Brooker+Road+Waltham+Abbey+EN9+1JH" target="_blank" rel="noopener">
+            Open in Maps ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ATTIRE ═══ -->
+<section class="attire-section reveal">
+  <div class="section-label">Dress Code</div>
+  <h2>What to Wear</h2>
+  <p class="attire-intro">
+    We invite you to join us dressed in celebration.
+  </p>
+  <div class="attire-grid" style="max-width: 700px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    <div class="attire-card">
+      <div class="attire-day">Thursday 23 July — Service of Songs</div>
+      <div class="attire-who">Everyone</div>
+      <div class="attire-what">White</div>
+      <div class="colour-swatch">
+        <div class="swatch" style="background:#FFFDF9; border: 1px solid rgba(255,255,255,0.5);" title="White"></div>
+      </div>
+    </div>
+    <div class="attire-card">
+      <div class="attire-day">Friday 24 July — Funeral &amp; Celebration of Life</div>
+      <div class="attire-who">Extended Family &amp; Friends</div>
+      <div class="attire-what">Family Ankara — burnt orange, chocolate brown, teal &amp; ivory</div>
+      <div class="colour-swatch">
+        <div class="swatch" style="background:#C65D2A;" title="Burnt Orange"></div>
+        <div class="swatch" style="background:#4A2C1A;" title="Chocolate Brown"></div>
+        <div class="swatch" style="background:#2A7A7A;" title="Teal"></div>
+        <div class="swatch" style="background:#F5F0E8;" title="Ivory"></div>
+      </div>
+      <a href="https://forms.gle/ynUQF5sc5EUZ4ubd6" target="_blank" rel="noopener"
+        style="display:inline-block; margin-top:1rem; font-size:0.65rem; font-weight:500;
+               letter-spacing:0.15em; text-transform:uppercase; color:var(--gold);
+               text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.4);
+               padding-bottom:1px; transition:border-color 0.2s;">
+        Order Aso Ebi Fabric ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ASO EBI ═══ -->
+<section class="aso-ebi-section reveal">
+  <div class="section-label">Fabric</div>
+  <h2>Aso Ebi</h2>
+  <p>
+    A beautiful Ankara fabric featuring rich shades of burnt orange, chocolate brown, teal and ivory,
+    woven together in an elegant mosaic of intricate African-inspired patterns. The warm, earthy tones
+    and striking design create a look that is both dignified and celebratory — a fitting choice for
+    Mum's farewell and celebration of her life.
+  </p>
+  <a href="https://forms.gle/ynUQF5sc5EUZ4ubd6" target="_blank" rel="noopener" class="outline-btn">
+    Order Aso Ebi Fabric
+  </a>
+</section>
+
+<!-- ═══ RSVP BOTTOM ═══ -->
+<section class="rsvp-section">
+  <div class="section-label">Kindly Respond</div>
+  <h2>RSVP</h2>
+  <p>
+    Limited capacity at the Celebration of Life — please confirm your attendance
+    so we can prepare to welcome you.
+  </p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUfSHDqJNqSdv7izdyEvWk32y7wJe6-JGBn3F2M7jGxRTnzg/viewform"
+     target="_blank" rel="noopener" class="rsvp-btn-dark">
+    <span>Confirm your attendance</span>
+  </a>
+</section>
+
+<!-- ═══ MEMORIAL ═══ -->
+<section class="memorial-section reveal">
+  <p>To leave a tribute or share a memory of Mrs Clementina Odesanya, visit her memorial page:</p>
+  <a href="https://clementinaodesanya.muchloved.com/" target="_blank" rel="noopener">
+    clementinaodesanya.muchloved.com ↗
+  </a>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>In loving memory of <strong>Mrs Clementina Modupeola Odesanya</strong></p>
+  <p style="margin-top: 0.4rem;">27 May 1935 – 19 May 2026</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
