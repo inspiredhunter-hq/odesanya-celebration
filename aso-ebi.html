@@ -216,6 +216,23 @@
     color: var(--text-mid);
     line-height: 1.8;
   }
+  .cta-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--purple);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .cta-btn:hover {
+    background: var(--purple-mid);
+    transform: translateY(-1px);
+  }
 
   /* ── FORM SECTION ── */
   .form-section {
@@ -332,12 +349,14 @@
         <span class="day-card-label">Thursday 24 July</span>
         <h3>Service of Songs</h3>
         <div class="attire-row">
-          <div class="attire-gender">Men</div>
-          <div class="attire-desc">Plum Fila + scarf</div>
+          <div class="attire-desc">
+            Guests are invited to wear <strong style="color:var(--purple)">white</strong>.
+          </div>
         </div>
         <div class="attire-row">
-          <div class="attire-gender">Ladies</div>
-          <div class="attire-desc">White dress or anything white + Family Plum Gele (optional Ipele)</div>
+          <div class="attire-desc" style="font-style:italic; color:var(--text-light); font-size:0.85rem;">
+            Mum was a wonderfully colourful person — any colour is warmly welcome.
+          </div>
         </div>
       </div>
 
@@ -345,27 +364,27 @@
         <span class="day-card-label">Friday 25 July</span>
         <h3>Funeral Service &amp; Celebration of Life</h3>
         <div class="attire-row">
-          <div class="attire-gender">Men</div>
-          <div class="attire-desc">Cream lace (5 yards) for Buba + Sokoto · Aso Oke Fila + Scarf<br>
-          <em style="font-size:0.82rem; color:var(--text-light);">Optional: Agbada (10 yards fabric)</em></div>
+          <div class="attire-desc">
+            Guests are invited to wear the <strong style="color:var(--purple)">family Aso Ebi Ankara</strong> fabric.
+          </div>
         </div>
         <div class="attire-row">
-          <div class="attire-gender">Ladies</div>
-          <div class="attire-desc">Purple Lace · Aso Oke Gele<br>
-          <em style="font-size:0.82rem; color:var(--text-light);">Optional: Aso Oke Ipele</em></div>
+          <div class="attire-desc" style="font-size:0.85rem; color:var(--text-light);">
+            If you are wearing the family Ankara, you are welcome to add your own <em>green Gele</em> (ladies) or <em>green Fila</em> (men) to complement your outfit.
+          </div>
         </div>
       </div>
 
     </div>
 
-    <div class="note-box">
-      <p><strong>Grandchildren:</strong> Ankara in green is recommended rather than Aso Oke — please include children's requirements in your order.</p>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="#order-form" class="cta-btn">Order Your Aso Ebi ↓</a>
     </div>
   </div>
 </section>
 
 <!-- FORM -->
-<section class="form-section">
+<section class="form-section" id="order-form">
   <div class="form-inner">
     <h2>Place Your Order</h2>
     <p class="lead">Please order as soon as possible so we can place orders in good time.</p>
@@ -389,13 +408,6 @@
   <p>In loving memory of Clementina Modupeola Odesanya<br>
   <em>May 1935 – May 2026</em></p>
   <span class="gold-text">A Life of Faith · A Legacy of Love</span>
-  <p style="margin-top: 1.6rem; font-size: 0.8rem; opacity: 0.65; letter-spacing: 0.05em;">
-    This site was made by the family. \&mdash;
-    <a href="https://forkeepscollection.com" target="_blank" rel="noopener"
-       style="color: rgba(228,201,126,0.8); text-decoration: none; border-bottom: 1px solid rgba(228,201,126,0.4);">
-      forkeepscollection.com ↗
-    </a>
-  </p>
 </footer>
 
 </body>
