@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RSVP — Clementina Modupeola Odesanya</title>
+<title>RSVP â Clementina Modupeola Odesanya</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -28,7 +28,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+  /* ââ NAV ââ */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -67,7 +67,7 @@
   }
   .nav-links a:hover { color: var(--gold); }
 
-  /* ── HERO ── */
+  /* ââ HERO ââ */
   .hero {
     min-height: 50vh;
     display: flex;
@@ -139,7 +139,7 @@
     margin: 0 auto;
   }
 
-  /* ── DETAILS BAND ── */
+  /* ââ DETAILS BAND ââ */
   .details-band {
     background: var(--purple);
     padding: 3rem 2rem;
@@ -175,7 +175,7 @@
     color: rgba(255,255,255,0.9);
   }
 
-  /* ── FORM SECTION ── */
+  /* ââ FORM SECTION ââ */
   .form-section {
     background: var(--warm-white);
     padding: 5rem 2rem;
@@ -208,7 +208,7 @@
     min-height: 900px;
   }
 
-  /* ── FOOTER ── */
+  /* ââ FOOTER ââ */
   footer {
     background: var(--text-dark);
     padding: 3rem 2rem;
@@ -233,7 +233,7 @@
     margin-top: 0.8rem;
   }
 
-  /* ── ANIMATIONS ── */
+  /* ââ ANIMATIONS ââ */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -243,10 +243,25 @@
   .delay-2 { animation-delay: 0.5s; }
   .delay-3 { animation-delay: 0.8s; }
 
-  /* ── RESPONSIVE ── */
+  /* ââ RESPONSIVE ââ */
   @media (max-width: 600px) {
-    .nav-links { gap: 1.2rem; }
-    .nav-links a { font-size: 0.62rem; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: rgba(253, 248, 240, 0.98);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 0.5rem 0 1rem;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; text-align: center; }
+    .nav-links a { display: block; padding: 0.75rem 1rem; font-size: 0.75rem; }
     .details-band { gap: 2rem; }
   }
 </style>
@@ -255,14 +270,17 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-name">Clementina Modupeola Odesanya</a>
-  <ul class="nav-links">
-    <li><a href="index.html">The Service</a></li>
-    <li><a href="rsvp.html" style="color:var(--gold)">RSVP</a></li>
-    <li><a href="aso-ebi.html">Aso Ebi</a></li>
-    <li><a href="memories.html">Share Memories</a></li>
-    <li><a href="legacy.html">The Legacy</a></li>
-    <li><a href="https://clementinaodesanya.muchloved.com/" target="_blank">Tribute &amp; Photos</a></li>
+  <a href="index.html" class="nav-name" onclick="document.getElementById('nav-links').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('open');">Clementina Modupeola Odesanya</a>
+  <button class="nav-hamburger" aria-label="Open menu" onclick="this.classList.toggle('open'); document.getElementById('nav-links').classList.toggle('open');">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html" onclick="document.getElementById('nav-links').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('open');">The Service</a></li>
+    <li><a href="rsvp.html" style="color:var(--gold)" onclick="document.getElementById('nav-links').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('open');">RSVP</a></li>
+    <li><a href="aso-ebi.html" onclick="document.getElementById('nav-links').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('open');">Aso Ebi</a></li>
+    <li><a href="memories.html" onclick="document.getElementById('nav-links').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('open');">Share Memories</a></li>
+    <li><a href="legacy.html" onclick="document.getElementById('nav-links').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('open');">The Legacy</a></li>
+    <li><a href="https://clementinaodesanya.muchloved.com/" target="_blank" onclick="document.getElementById('nav-links').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('open');">Tribute &amp; Photos</a></li>
   </ul>
 </nav>
 
@@ -285,15 +303,15 @@
 <div class="details-band">
   <div class="detail-item">
     <span class="detail-label">Service of Songs</span>
-    <span class="detail-value">Thursday 24 July · 7:00pm</span>
+    <span class="detail-value">Thursday 24 July Â· 7:00pm</span>
   </div>
   <div class="detail-item">
     <span class="detail-label">Funeral Service</span>
-    <span class="detail-value">Friday 25 July · 1:30pm</span>
+    <span class="detail-value">Friday 25 July Â· 1:30pm</span>
   </div>
   <div class="detail-item">
     <span class="detail-label">Celebration of Life</span>
-    <span class="detail-value">Friday 25 July · ~4:00pm</span>
+    <span class="detail-value">Friday 25 July ~4:00pm</span>
   </div>
 </div>
 
@@ -301,7 +319,7 @@
 <section class="form-section">
   <div class="form-inner">
     <h2>Confirm Your Attendance</h2>
-    <p class="lead">The Celebration of Life venue has limited capacity — your RSVP secures your place.</p>
+    <p class="lead">The Celebration of Life venue has limited capacity â your RSVP secures your place.</p>
 
     <iframe
       class="form-embed"
@@ -319,15 +337,8 @@
 <!-- FOOTER -->
 <footer>
   <p>In loving memory of Clementina Modupeola Odesanya<br>
-  <em>May 1935 – May 2026</em></p>
-  <span class="gold-text">A Life of Faith · A Legacy of Love</span>
-  <p style="margin-top: 1.6rem; font-size: 0.85rem; opacity: 0.7; letter-spacing: 0.04em;">
-    Want a site like this for your loved one? &mdash;
-    <a href="https://forkeepscollection.com" target="_blank" rel="noopener"
-       style="color: var(--gold-light); text-decoration: none; border-bottom: 1px solid rgba(228,201,126,0.5);">
-      forkeepscollection.com ↗
-    </a>
-  </p>
+  <em>May 1935 â May 2026</em></p>
+  <span class="gold-text">A Life of Faith Â· A Legacy of Love</span>
 </footer>
 
 </body>
