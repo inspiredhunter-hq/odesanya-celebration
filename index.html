@@ -48,7 +48,9 @@
     font-style: italic;
     color: var(--purple);
     letter-spacing: 0.03em;
+    text-decoration: none;
   }
+  .nav-name:hover { color: var(--gold); }
   .nav-links {
     display: flex;
     gap: 2rem;
@@ -649,14 +651,52 @@
   }
   .reveal.visible { opacity: 1; transform: none; }
 
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--purple);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   /* ── MOBILE ── */
   @media (max-width: 720px) {
     .section-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .section-inner.reverse { direction: ltr; }
-    .nav-links { display: none; }
     .event-number { font-size: 3.5rem; }
     .attire-grid { grid-template-columns: 1fr; }
     .taxi-grid { grid-template-columns: 1fr; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: rgba(253, 248, 240, 0.98);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 0.5rem 0 1rem;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; text-align: center; }
+    .nav-links a { display: block; padding: 0.75rem 1rem; font-size: 0.75rem; }
   }
 </style>
 </head>
@@ -664,12 +704,18 @@
 
 <!-- ═══ NAV ═══ -->
 <nav>
-  <span class="nav-name">Mrs Clementina Modupeola Odesanya</span>
-  <ul class="nav-links">
-    <li><a href="#service-of-songs">Service of Songs</a></li>
-    <li><a href="#funeral">Funeral Service</a></li>
-    <li><a href="#celebration">Celebration of Life</a></li>
-    <li><a href="#rsvp">RSVP</a></li>
+  <a href="index.html" class="nav-name">Mrs Clementina Modupeola Odesanya</a>
+  <button class="nav-hamburger" aria-label="Open menu" onclick="this.classList.toggle('open'); document.getElementById('nav-links').classList.toggle('open');">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#service-of-songs" onclick="document.getElementById('nav-links').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('open');">Service of Songs</a></li>
+    <li><a href="#funeral" onclick="document.getElementById('nav-links').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('open');">Funeral Service</a></li>
+    <li><a href="#celebration" onclick="document.getElementById('nav-links').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('open');">Celebration of Life</a></li>
+    <li><a href="#rsvp" onclick="document.getElementById('nav-links').classList.remove('open'); document.querySelector('.nav-hamburger').classList.remove('open');">RSVP</a></li>
+    <li><a href="https://forms.gle/ynUQF5sc5EUZ4ubd6" target="_blank">Aso Ebi</a></li>
+    <li><a href="memories.html">Share Memories</a></li>
+    <li><a href="book.html">The Legacy</a></li>
   </ul>
 </nav>
 
@@ -991,23 +1037,18 @@
       </a>
     </div>
     <div class="reveal">
-      <div class="venue-visual">
-        <div class="venue-photo">
-          <img src="Palace banqueting Hall.png" alt="The Palace Banqueting Suite, Waltham Abbey">
-        </div>
-        <div class="map-block">
-          <iframe
-            src="https://maps.google.com/maps?q=112+Brooker+Road+Waltham+Abbey+EN9+1JH&output=embed"
-            title="The Palace Banqueting Suite map"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-          <div class="map-caption">
-            <span>The Palace Banqueting Suite · EN9 1JH</span>
-            <a class="map-link" href="https://maps.google.com/?q=112+Brooker+Road+Waltham+Abbey+EN9+1JH" target="_blank" rel="noopener">
-              Open in Maps ↗
-            </a>
-          </div>
+      <div class="map-block">
+        <iframe
+          src="https://maps.google.com/maps?q=112+Brooker+Road+Waltham+Abbey+EN9+1JH&output=embed"
+          title="The Palace Banqueting Suite map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-caption">
+          <span>The Palace Banqueting Suite · EN9 1JH</span>
+          <a class="map-link" href="https://maps.google.com/?q=112+Brooker+Road+Waltham+Abbey+EN9+1JH" target="_blank" rel="noopener">
+            Open in Maps ↗
+          </a>
         </div>
       </div>
     </div>
