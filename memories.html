@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Your Memories — Clementina Modupeola Odesanya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #7D3248;
+    --purple-mid: #A85470;
+    --purple-light: #D08898;
+    --gold: #C9A84C;
+    --gold-light: #E4C97E;
+    --gold-pale: #F5E9C8;
+    --cream: #FBF7F0;
+    --warm-white: #FFFDF9;
+    --text-dark: #2A1218;
+    --text-mid: #5A2E3C;
+    --text-light: #9A7080;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(251, 247, 240, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--purple);
+    letter-spacing: 0.03em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 5rem;
+    background: #FDF0E6;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(125,50,72,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(201,168,76,0.1) 0%, transparent 60%);
+  }
+  .hero-content { position: relative; max-width: 700px; }
+  .section-label {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    color: var(--purple);
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+  }
+  .hero-divider {
+    margin: 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .hero-divider span {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-light));
+  }
+  .hero-divider span:last-child {
+    background: linear-gradient(90deg, var(--gold-light), transparent);
+  }
+  .diamond {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+  .hero p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* ── INTRO SECTION ── */
+  .intro {
+    background: var(--warm-white);
+    padding: 5rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .intro-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--purple);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+  .intro p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--text-mid);
+    margin-bottom: 1.2rem;
+  }
+  .intro p:last-child { margin-bottom: 0; }
+  .intro strong {
+    color: var(--purple);
+    font-weight: 500;
+  }
+
+  /* ── WHY IT MATTERS ── */
+  .why {
+    background: var(--purple);
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .why::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  }
+  .why::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .why-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .why .section-label { color: var(--gold-light); }
+  .why h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  .why-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-style: italic;
+    color: var(--gold-light);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .why p {
+    font-size: 0.92rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1rem;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how {
+    background: var(--cream);
+    padding: 5rem 2rem;
+  }
+  .how-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .how h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--purple);
+    font-weight: 400;
+    margin-bottom: 3rem;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  .step {
+    background: var(--warm-white);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 2rem 1.5rem;
+    border-radius: 2px;
+    text-align: center;
+  }
+  .step-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+  .step h3 {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 0.6rem;
+  }
+  .step p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* ── FORM SECTION ── */
+  .form-section {
+    background: var(--warm-white);
+    padding: 5rem 2rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+  .form-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .form-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--purple);
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+  }
+  .form-inner .lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-mid);
+    margin-bottom: 2.5rem;
+  }
+  .form-embed {
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 8px 32px rgba(125,50,72,0.1);
+    min-height: 900px;
+  }
+  .form-placeholder {
+    background: var(--cream);
+    border: 2px dashed rgba(201,168,76,0.4);
+    border-radius: 2px;
+    padding: 4rem 2rem;
+    color: var(--text-light);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .form-placeholder a {
+    color: var(--purple);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .cta-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2.5rem;
+    background: var(--purple);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .cta-btn:hover {
+    background: var(--purple-mid);
+    transform: translateY(-1px);
+  }
+
+  /* ── FAQ ── */
+  .faq {
+    background: var(--cream);
+    padding: 5rem 2rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+  .faq-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .faq h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    color: var(--purple);
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 1.5rem 0;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--purple);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+  .faq-item p {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  /* ── PHOTOS NOTE ── */
+  .photos-note {
+    background: var(--gold-pale);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0 0;
+    border-radius: 0 2px 2px 0;
+    text-align: left;
+  }
+  .photos-note p {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+  .photos-note a {
+    color: var(--purple);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text-dark);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  footer p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+  }
+  footer .gold-text {
+    color: var(--gold-light);
+    font-style: normal;
+    font-size: 0.65rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 0.8rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { opacity: 0; animation: fadeUp 0.8s forwards; }
+  .delay-1 { animation-delay: 0.2s; }
+  .delay-2 { animation-delay: 0.5s; }
+  .delay-3 { animation-delay: 0.8s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .nav-links { gap: 1.2rem; }
+    .nav-links a { font-size: 0.62rem; }
+    .steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Clementina Modupeola Odesanya</span>
+  <ul class="nav-links">
+    <li><a href="index.html">The Service</a></li>
+    <li><a href="memories.html" style="color:var(--gold)">Share Memories</a></li>
+    <li><a href="book.html">The Book</a></li>
+    <li><a href="https://clementinaodesanya.muchloved.com/" target="_blank">Tribute &amp; Photos</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="section-label fade-in delay-1">A Legacy Project</span>
+    <h1 class="fade-in delay-1">Share Your Memories<br>of Grandma</h1>
+    <div class="hero-divider fade-in delay-2">
+      <span></span><div class="diamond"></div><span></span>
+    </div>
+    <p class="fade-in delay-3">
+      Help us preserve her life, her wisdom, her faith and her love<br>
+      for the generations who come after us.
+    </p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner">
+    <h2>A Life Worth Preserving</h2>
+    <p>
+      Clementina Modupeola Odesanya lived ninety full years — from Nigeria to England,
+      through faith, family, hardship and joy. She leaves behind four children,
+      grandchildren, eleven great-grandchildren, and a community of people whose lives
+      were shaped by knowing her.
+    </p>
+    <p>
+      The memories she planted in each of us are too precious to lose.
+      We are creating a commemorative family book so that future generations —
+      including great-grandchildren not yet born — will know who she was,
+      how she lived, and what she left behind.
+    </p>
+    <p>
+      <strong>Your story is part of her story.</strong> We need your help to tell it.
+    </p>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="why">
+  <div class="why-inner">
+    <span class="section-label">Why Your Contribution Matters</span>
+    <h2>Stories Matter More Than Possessions</h2>
+    <p class="why-quote">
+      "What did Grandma leave in you that will remain long after she is gone?"
+    </p>
+    <p>
+      Furniture fades. Houses change hands. Photographs lose their names.
+      But a story — written down, preserved, shared — can travel across generations
+      in a way nothing else can.
+    </p>
+    <p>
+      Every person who knew Grandma holds a piece of her that no one else has.
+      The quiet conversation. The meal she made. The thing she said that stayed with you.
+      The way she made you feel when you walked through her door.
+    </p>
+    <p>
+      These are the things we are trying to save. <strong style="color:var(--gold-light)">Please help us.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="how-inner">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <h3>Complete the form</h3>
+        <p>Answer as many or as few questions as you like. It takes around 10 minutes.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <h3>Share your photos</h3>
+        <p>Upload photographs of Grandma via the tribute website — the link is below.</p>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <h3>Your words live on</h3>
+        <p>Your contribution may be included in a commemorative family book for future generations.</p>
+      </div>
+    </div>
+
+    <div class="photos-note">
+      <p>
+        <strong>To share photographs:</strong> please upload them directly to the family tribute page at
+        <a href="https://clementinaodesanya.muchloved.com/" target="_blank">clementinaodesanya.muchloved.com</a>.
+        When uploading, please include a caption — who is in the photo, when it was taken, and the story behind it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+  <div class="form-inner">
+    <h2>Tell Us Your Story</h2>
+    <p class="lead">Every memory matters. Every story is a gift.</p>
+
+    <!--
+      INSTRUCTIONS FOR DEPLOYMENT:
+      Replace the placeholder below with your Google Form embed code.
+      In Google Forms: Send → Embed (</>) → Copy the iframe code → paste here.
+      Recommended iframe height: 900px minimum.
+    -->
+    <iframe
+      class="form-embed"
+      src="https://forms.gle/t9AHFTwyfBZxgoet9?embedded=true"
+      title="Share Your Memories of Grandma">
+      Loading form...
+    </iframe>
+    <p style="margin-top:1rem; font-size:0.8rem; color:var(--text-light);">
+      Prefer to open the form in a new window?
+      <a href="https://forms.gle/t9AHFTwyfBZxgoet9" target="_blank" style="color:var(--purple); text-decoration:underline; text-underline-offset:3px;">Click here</a>.
+    </p>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <h3>Who can contribute?</h3>
+      <p>Anyone who knew Grandma — family, friends, church members, neighbours, colleagues.
+      If she touched your life in any way, your story belongs in this book.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How long should my response be?</h3>
+      <p>There are no rules. A single sentence can be just as powerful as a paragraph.
+      Write what feels true to you. You do not need to answer every question.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Will my name be included?</h3>
+      <p>You choose. You can contribute with your full name, first name only, or anonymously.
+      We will ask for your preference at the end of the form.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>When is the deadline?</h3>
+      <p>We will be collecting memories for several weeks after the Celebration of Life on 24 July 2026.
+      The sooner you contribute, the richer the book will be — but there is no hard cut-off.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Where do I send photographs?</h3>
+      <p>Please upload photographs to the family tribute page at
+      <a href="https://clementinaodesanya.muchloved.com/" target="_blank">clementinaodesanya.muchloved.com</a>
+      rather than through this form. Include a caption so we know who is in the photo and when it was taken.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What happens to my contribution?</h3>
+      <p>Your words may be included in a commemorative family book published as a keepsake for
+      family members and future generations. Nothing will be published without your permission.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>In loving memory of Clementina Modupeola Odesanya<br>
+  <em>May 1935 – May 2026</em></p>
+  <span class="gold-text">A Life of Faith · A Legacy of Love</span>
+</footer>
+
+</body>
+</html>
