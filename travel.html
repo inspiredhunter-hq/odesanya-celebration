@@ -246,7 +246,23 @@
     gap: 0.6rem;
     margin-bottom: 1.6rem;
   }
-  .legend-row .badge { cursor: default; }
+  .legend-row .badge {
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .legend-row .badge:hover { background: var(--gold-light); }
+  .legend-row .badge:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
+  .legend-row .badge.active { background: var(--purple); border-color: var(--purple); color: var(--gold-pale); }
+  .clear-filter-link {
+    background: none;
+    border: none;
+    color: var(--purple-mid);
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+  }
 
   .search-row {
     display: flex;
@@ -566,12 +582,12 @@
 <section class="accom-section">
   <div class="accom-inner">
 
-    <div class="legend-row" aria-hidden="true">
-      <span class="badge">Best Overall</span>
-      <span class="badge">Best Value</span>
-      <span class="badge">Boutique Choice</span>
-      <span class="badge">Premium Choice</span>
-      <span class="badge">Budget Choice</span>
+    <div class="legend-row" role="group" aria-label="Filter hotels by recommendation">
+      <button type="button" class="badge" data-filter="Best Overall" aria-pressed="false">Best Overall</button>
+      <button type="button" class="badge" data-filter="Best Value" aria-pressed="false">Best Value</button>
+      <button type="button" class="badge" data-filter="Boutique Choice" aria-pressed="false">Boutique Choice</button>
+      <button type="button" class="badge" data-filter="Premium Choice" aria-pressed="false">Premium Choice</button>
+      <button type="button" class="badge" data-filter="Budget Choice" aria-pressed="false">Budget Choice</button>
     </div>
 
     <div class="search-row">
@@ -585,8 +601,8 @@
     <div class="table-scroll" role="region" aria-label="Accommodation options, scrollable horizontally" tabindex="0">
       <table class="accom-table" id="accom-table">
         <caption class="visually-hidden">
-          Hotels near St Etheldreda's Church (Hatfield), Woollensbrook Cemetery (Hoddesdon) and
-          The Palace Banqueting Suite (Waltham Abbey), sorted by default for overall convenience
+          Hotels near St Etheldreda's Church (Service of Songs), Woollensbrook Cemetery (Funeral Service) and
+          The Palace Banqueting Suite (Celebration of Life), sorted by default for overall convenience
           across all three venues. Columns can be sorted; results can be searched.
         </caption>
         <thead>
@@ -603,10 +619,10 @@
             <th scope="col">Website</th>
             <th scope="col">Parking</th>
             <th scope="col" id="th-hatfield">
-              <button class="sort-btn" data-key="hatfield" aria-label="Sort by drive time to Hatfield">Hatfield <span class="arrow" aria-hidden="true"></span></button>
+              <button class="sort-btn" data-key="hatfield" aria-label="Sort by drive time to the Service of Songs">Service of Songs <span class="arrow" aria-hidden="true"></span></button>
             </th>
             <th scope="col" id="th-hoddesdon">
-              <button class="sort-btn" data-key="hoddesdon" aria-label="Sort by drive time to Hoddesdon">Hoddesdon <span class="arrow" aria-hidden="true"></span></button>
+              <button class="sort-btn" data-key="hoddesdon" aria-label="Sort by drive time to the Funeral Service">Funeral Service <span class="arrow" aria-hidden="true"></span></button>
             </th>
             <th scope="col" id="th-celebration">
               <button class="sort-btn" data-key="celebration" aria-label="Sort by drive time to Celebration venue">Celebration Venue <span class="arrow" aria-hidden="true"></span></button>
@@ -787,6 +803,7 @@
   const resultCount = document.getElementById('result-count');
   const searchInput = document.getElementById('hotel-search');
   let sortState = { key: null, dir: 1 };
+  let activeBadge = null;
 
   function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -796,6 +813,11 @@
     if (!query) return true;
     const haystack = [hotel.name, hotel.postcode, hotel.address, hotel.notes].join(' ').toLowerCase();
     return haystack.includes(query.toLowerCase());
+  }
+
+  function matchesBadge(hotel, badge) {
+    if (!badge) return true;
+    return hotel.badge === badge;
   }
 
   function getSorted(list) {
@@ -817,11 +839,16 @@
 
   function render() {
     const query = searchInput.value.trim();
-    let list = hotels.filter(h => matchesSearch(h, query));
+    let list = hotels.filter(h => matchesSearch(h, query) && matchesBadge(h, activeBadge));
     list = getSorted(list);
 
     if (list.length === 0) {
-      tbody.innerHTML = `<tr class="no-results-row"><td colspan="11">No hotels match "${escapeHtml(query)}". Try a different name, postcode or area.</td></tr>`;
+      const reason = activeBadge && query
+        ? `"${escapeHtml(query)}" with the "${escapeHtml(activeBadge)}" filter`
+        : activeBadge
+        ? `the "${escapeHtml(activeBadge)}" filter`
+        : `"${escapeHtml(query)}"`;
+      tbody.innerHTML = `<tr class="no-results-row"><td colspan="11">No hotels match ${reason}. Try a different name, postcode or area, or clear the filter.</td></tr>`;
     } else {
       tbody.innerHTML = list.map(h => `
         <tr>
@@ -846,10 +873,39 @@
       `).join('');
     }
 
-    resultCount.textContent = query
-      ? `Showing ${list.length} of ${hotels.length} hotels for "${query}"`
+    let countText = activeBadge
+      ? `Showing ${list.length} of ${hotels.length} hotels — filtered to "${escapeHtml(activeBadge)}"`
+      : query
+      ? `Showing ${list.length} of ${hotels.length} hotels for "${escapeHtml(query)}"`
       : `Showing all ${hotels.length} hotels`;
+    if (activeBadge) {
+      countText += ` <button type="button" class="clear-filter-link" id="clear-filter-btn">Clear filter</button>`;
+    }
+    resultCount.innerHTML = countText;
+
+    const clearBtn = document.getElementById('clear-filter-btn');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        setActiveBadge(null);
+      });
+    }
   }
+
+  function setActiveBadge(badge) {
+    activeBadge = badge;
+    document.querySelectorAll('.legend-row .badge').forEach(b => {
+      const isActive = b.dataset.filter === activeBadge;
+      b.classList.toggle('active', isActive);
+      b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    render();
+  }
+
+  document.querySelectorAll('.legend-row .badge').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setActiveBadge(activeBadge === btn.dataset.filter ? null : btn.dataset.filter);
+    });
+  });
 
   document.querySelectorAll('.sort-btn').forEach(btn => {
     btn.addEventListener('click', () => {
