@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Legacy — Clementina Modupeola Odesanya</title>
+<title>The Legacy - Clementina Modupeola Odesanya</title>
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="description" content="The legacy book celebrating the life of Mrs Clementina Modupeola Odesanya — a collection of memories, faith and wisdom from family and friends.">
+<meta name="description" content="The legacy book celebrating the life of Mrs Clementina Modupeola Odesanya - a collection of memories, faith and wisdom from family and friends.">
 <link rel="canonical" href="https://clementinaodesanya.com/legacy">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Celebrating the Life of Mrs Clementina Modupeola Odesanya">
 <meta property="og:url" content="https://clementinaodesanya.com/legacy">
-<meta property="og:title" content="The Legacy — Clementina Modupeola Odesanya">
-<meta property="og:description" content="The legacy book celebrating the life of Mrs Clementina Modupeola Odesanya — a collection of memories, faith and wisdom from family and friends.">
-<meta property="og:image" content="https://clementinaodesanya.com/Mum%27s%20Funeral%20Invitation.jpg">
+<meta property="og:title" content="The Legacy - Clementina Modupeola Odesanya">
+<meta property="og:description" content="The legacy book celebrating the life of Mrs Clementina Modupeola Odesanya - a collection of memories, faith and wisdom from family and friends.">
+<meta property="og:image" content="https://clementinaodesanya.com/legacy-book-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -41,7 +41,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+  /* -- NAV -- */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -81,7 +81,7 @@
   .nav-links a:hover { color: var(--gold); }
   .nav-links a.active { color: var(--gold); }
 
-  /* ── HERO ── */
+  /* -- HERO -- */
   .hero {
     min-height: 60vh;
     display: flex;
@@ -165,7 +165,38 @@
     margin: 0 auto;
   }
 
-  /* ── DOWNLOAD SECTION ── */
+  /* -- BOOK COVER -- */
+  .hero-cover {
+    display: block;
+    width: 300px;
+    max-width: 78vw;
+    height: auto;
+    margin: 2.5rem auto 0;
+    border-radius: 2px;
+    border: 1px solid rgba(201,168,76,0.45);
+    box-shadow: 0 18px 45px rgba(42,18,24,0.22);
+  }
+  .download-layout {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .book-thumb { margin: 0; flex-shrink: 0; }
+  .book-thumb img {
+    display: block;
+    width: 230px;
+    max-width: 70vw;
+    height: auto;
+    border-radius: 2px;
+    border: 1px solid rgba(201,168,76,0.4);
+    box-shadow: 0 14px 34px rgba(42,18,24,0.16);
+  }
+
+  /* -- DOWNLOAD SECTION -- */
   .download {
     background: var(--warm-white);
     padding: 5rem 2rem;
@@ -243,7 +274,7 @@
     display: block;
   }
 
-  /* ── HARD COPY SECTION ── */
+  /* -- HARD COPY SECTION -- */
   .hardcopy {
     background: var(--purple);
     padding: 5rem 2rem;
@@ -304,7 +335,7 @@
     transform: translateY(-2px);
   }
 
-  /* ── ABOUT THE BOOK ── */
+  /* -- ABOUT THE BOOK -- */
   .about {
     background: var(--cream);
     padding: 5rem 2rem;
@@ -342,14 +373,14 @@
     border-radius: 2px;
   }
   .contents-list li::before {
-    content: '◆';
+    content: 'u25C6';
     color: var(--gold);
     font-size: 0.5rem;
     margin-top: 0.35rem;
     flex-shrink: 0;
   }
 
-  /* ── FOOTER ── */
+  /* -- FOOTER -- */
   footer {
     background: var(--text-dark);
     padding: 3rem 2rem;
@@ -435,28 +466,25 @@
     </div>
     <p class="fade-in delay-3">
       A commemorative book celebrating the life of<br>
-      Clementina Modupeola Odesanya — May 1935 to May 2026.
+      Clementina Modupeola Odesanya - May 1935 to May 2026.
     </p>
+    <img class="hero-cover fade-in delay-3" src="/legacy-book-cover.jpg" alt="Cover of Grandma's Legacy, the commemorative book for Clementina Modupeola Odesanya, with her portrait and the words A Life of Faith, A Legacy of Love">
   </div>
 </section>
 
 <!-- FREE DOWNLOAD -->
 <section class="download">
+  <div class="download-layout">
+  <figure class="book-thumb">
+    <img src="/legacy-book-cover.jpg" alt="Cover of Grandma's Legacy, the commemorative book for Clementina Modupeola Odesanya">
+  </figure>
   <div class="download-inner">
     <span class="section-label">Free for Everyone</span>
     <h2>Download the Book</h2>
     <p>
-      This book is our gift to everyone who loved Grandma — and to every generation that comes after.
+      This book is our gift to everyone who loved Grandma - and to every generation that comes after.
       Download your free copy below, or share the link with anyone who knew her.
     </p>
-
-    <!--
-      INSTRUCTIONS:
-      When the PDF is ready:
-      1. Add the file to your GitHub repo (e.g. as /grandmas-legacy.pdf)
-      2. Remove the btn-coming-soon div below
-      3. Uncomment the btn-download anchor and update the href
-    -->
 
     <div class="btn-coming-soon">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;fill:currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 13.59V7a1 1 0 0 0-2 0v8.59l-2.3-2.3a1 1 0 0 0-1.4 1.42l4 4a1 1 0 0 0 1.4 0l4-4a1 1 0 0 0-1.4-1.42z"/></svg>
@@ -464,13 +492,7 @@
     </div>
     <span class="coming-soon-note">Available from 4:00 pm, Friday 24 July 2026</span>
 
-    <!--
-    <a class="btn-download" href="grandmas-legacy.pdf" download>
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 13.59V7a1 1 0 0 0-2 0v8.59l-2.3-2.3a1 1 0 0 0-1.4 1.42l4 4a1 1 0 0 0 1.4 0l4-4a1 1 0 0 0-1.4-1.42z"/></svg>
-      Download Free PDF
-    </a>
-    -->
-
+  </div>
   </div>
 </section>
 
@@ -483,12 +505,6 @@
       A beautifully printed paperback edition is available to order directly from Amazon.
       Ships worldwide. A permanent keepsake for your shelf, and a legacy for generations to come.
     </p>
-
-    <!--
-      INSTRUCTIONS:
-      When the book is live on Amazon KDP:
-      Update the href below with the Amazon product URL.
-    -->
 
     <a class="btn-amazon" href="#" onclick="return false;">
       Order on Amazon
@@ -508,24 +524,9 @@
     </p>
 
     <form id="notify-form" style="display:flex; flex-direction:column; gap:0.9rem; max-width:400px; margin:0 auto; text-align:left;">
-      <input
-        type="text"
-        id="notify-name"
-        placeholder="Your name"
-        style="padding:0.85rem 1rem; border:1px solid rgba(125,50,72,0.25); border-radius:2px; font-family:'Jost',sans-serif; font-size:0.88rem; background:var(--warm-white); color:var(--text-dark); outline:none;"
-      />
-      <input
-        type="email"
-        id="notify-email"
-        placeholder="Your email address"
-        required
-        style="padding:0.85rem 1rem; border:1px solid rgba(125,50,72,0.25); border-radius:2px; font-family:'Jost',sans-serif; font-size:0.88rem; background:var(--warm-white); color:var(--text-dark); outline:none;"
-      />
-      <button
-        type="submit"
-        style="padding:1rem 2rem; background:var(--purple); color:#fff; border:none; border-radius:2px; font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; cursor:pointer; transition:background 0.2s;"
-        onmouseover="this.style.background='#A85470'" onmouseout="this.style.background='#7D3248'"
-      >
+      <input type="text" id="notify-name" placeholder="Your name" style="padding:0.85rem 1rem; border:1px solid rgba(125,50,72,0.25); border-radius:2px; font-family:'Jost',sans-serif; font-size:0.88rem; background:var(--warm-white); color:var(--text-dark); outline:none;" />
+      <input type="email" id="notify-email" placeholder="Your email address" required style="padding:0.85rem 1rem; border:1px solid rgba(125,50,72,0.25); border-radius:2px; font-family:'Jost',sans-serif; font-size:0.88rem; background:var(--warm-white); color:var(--text-dark); outline:none;" />
+      <button type="submit" style="padding:1rem 2rem; background:var(--purple); color:#fff; border:none; border-radius:2px; font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; cursor:pointer; transition:background 0.2s;" onmouseover="this.style.background='#A85470'" onmouseout="this.style.background='#7D3248'">
         Notify Me
       </button>
     </form>
@@ -570,16 +571,15 @@
     <h2>About the Book</h2>
     <ul class="contents-list">
       <li>A welcome from the family</li>
-      <li>Her life story and biography</li>
-      <li>Timeline of her 90 years</li>
-      <li>Family tree — four generations</li>
-      <li>Woman of Faith — her spiritual journey</li>
+      <li>Her life story and biography (with timeline)</li>
+      <li>Family tree - four generations</li>
+      <li>Woman of Faith - her spiritual journey</li>
       <li>Lessons from Grandma</li>
       <li>Favourite scriptures and sayings</li>
-      <li>The Oriki — her family lineage in Yoruba</li>
+      <li>The Oriki - her family lineage in Yoruba</li>
       <li>Tributes from her children and grandchildren</li>
       <li>A photographic journey through her life</li>
-      <li>Reflection pages — space to write your own memories</li>
+      <li>Reflection pages - space to write your own memories</li>
       <li>An invitation to contribute to Volume Two</li>
     </ul>
   </div>
@@ -588,10 +588,10 @@
 <!-- FOOTER -->
 <footer>
   <p>In loving memory of Clementina Modupeola Odesanya<br>
-  <em>May 1935 – May 2026</em></p>
+  <em>May 1935 - May 2026</em></p>
   <span class="gold-text">A Life of Faith · A Legacy of Love</span>
   <p style="margin-top: 1.6rem; font-size: 0.8rem; opacity: 0.65; letter-spacing: 0.05em;">
-    This site was made by the family. &mdash;
+    This site was made by the family. -
     <a href="https://forkeepscollection.com" target="_blank" rel="noopener"
        style="color: var(--gold-light); text-decoration: none; border-bottom: 1px solid rgba(228,201,126,0.5);">
       forkeepscollection.com ↗
