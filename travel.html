@@ -212,6 +212,17 @@
     margin-top: 0.3rem;
     letter-spacing: 0.04em;
   }
+  .detail-accom-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .detail-accom-link:hover { color: var(--gold); }
 
   /* ── INTRO ── */
   .intro-band {
@@ -549,16 +560,19 @@
     <span class="detail-label">Service of Songs</span>
     <span class="detail-value">St Etheldreda's Church</span>
     <div class="detail-sub">Old Hatfield · AL9 5AN</div>
+    <a href="#accommodation" class="detail-accom-link">View suggested hotels ↓</a>
   </div>
   <div class="detail-item">
     <span class="detail-label">Funeral &amp; Interment</span>
     <span class="detail-value">Woollensbrook Cemetery</span>
     <div class="detail-sub">Hoddesdon · EN11 9BN</div>
+    <a href="#accommodation" class="detail-accom-link">View suggested hotels ↓</a>
   </div>
   <div class="detail-item">
     <span class="detail-label">Celebration of Life</span>
     <span class="detail-value">The Palace Banqueting Suite</span>
     <div class="detail-sub">Waltham Abbey · EN9 1JH</div>
+    <a href="#accommodation" class="detail-accom-link">View suggested hotels ↓</a>
   </div>
 </div>
 
@@ -579,15 +593,23 @@
 </section>
 
 <!-- ACCOMMODATION TABLE -->
-<section class="accom-section">
+<section class="accom-section" id="accommodation">
   <div class="accom-inner">
 
-    <div class="legend-row" role="group" aria-label="Filter hotels by recommendation">
+    <div class="legend-row" role="group" aria-label="Filter hotels by type or price">
       <button type="button" class="badge" data-filter="Best Overall" aria-pressed="false">Best Overall</button>
       <button type="button" class="badge" data-filter="Best Value" aria-pressed="false">Best Value</button>
       <button type="button" class="badge" data-filter="Boutique Choice" aria-pressed="false">Boutique Choice</button>
       <button type="button" class="badge" data-filter="Premium Choice" aria-pressed="false">Premium Choice</button>
       <button type="button" class="badge" data-filter="Budget Choice" aria-pressed="false">Budget Choice</button>
+    </div>
+
+    <div class="legend-row" role="group" aria-label="Filter hotels by price">
+      <span style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);align-self:center;">Filter by price:</span>
+      <button type="button" class="badge" data-price="under75" aria-pressed="false">Under £75</button>
+      <button type="button" class="badge" data-price="75to125" aria-pressed="false">£75–£125</button>
+      <button type="button" class="badge" data-price="125to200" aria-pressed="false">£125–£200</button>
+      <button type="button" class="badge" data-price="over200" aria-pressed="false">£200+</button>
     </div>
 
     <div class="search-row">
@@ -612,6 +634,9 @@
             </th>
             <th scope="col" id="th-rating">
               <button class="sort-btn" data-key="rating" aria-label="Sort by rating">Rating <span class="arrow" aria-hidden="true"></span></button>
+            </th>
+            <th scope="col" id="th-rate">
+              <button class="sort-btn" data-key="rateSort" aria-label="Sort by typical room rate">Typical Rate / Night <span class="arrow" aria-hidden="true"></span></button>
             </th>
             <th scope="col">Address</th>
             <th scope="col">Postcode</th>
@@ -642,6 +667,38 @@
       walk-in time — please allow extra time on the day, particularly between the Funeral Service
       and the Celebration of Life.
     </p>
+
+    <p class="accom-note" style="margin-top:1rem;">
+      <em>Prices are indicative only and may vary depending on room type, availability, season and booking date. Please check directly with each hotel for current rates.</em>
+    </p>
+  </div>
+</section>
+
+<!-- ALTERNATIVE ACCOMMODATION -->
+<section style="background:var(--warm-white);padding:3rem 2rem;border-top:1px solid rgba(201,168,76,0.2);">
+  <div style="max-width:760px;margin:0 auto;text-align:center;">
+    <span class="section-label" style="margin-bottom:1.2rem;display:block;">Other Options</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.3rem,3vw,1.7rem);font-weight:400;color:var(--purple);margin-bottom:1rem;">Not limited to hotels</h2>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--text-mid);line-height:1.85;margin-bottom:1.2rem;">
+      There are also Airbnb properties, serviced apartments, holiday cottages and short-term rentals
+      available throughout the local area — which may be particularly suitable for families travelling
+      together, larger groups, guests staying for several nights, or overseas visitors wanting more space.
+    </p>
+    <p style="font-family:'Jost',sans-serif;font-size:0.82rem;color:var(--text-light);letter-spacing:0.04em;margin-bottom:1.6rem;">
+      Try searching Airbnb or Booking.com for short-term rentals near:
+    </p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;margin-bottom:1.4rem;">
+      <span class="badge">Hatfield — Service of Songs</span>
+      <span class="badge">Hertford — near Funeral Service</span>
+      <span class="badge">Hoddesdon — Funeral Service</span>
+      <span class="badge">Broxbourne — near both Friday events</span>
+      <span class="badge">Cheshunt — central for all events</span>
+      <span class="badge">Waltham Abbey — Celebration of Life</span>
+    </div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-style:italic;color:var(--text-light);line-height:1.7;">
+      The hotels listed above are provided as a helpful starting point. Guests are welcome to choose
+      whichever accommodation best suits their needs.
+    </p>
   </div>
 </section>
 
@@ -670,6 +727,7 @@
   // ── HOTEL DATA ──
   // Default order below reflects overall convenience across all three venues
   // (combined drive time first, rating as tie-breaker), not proximity to any single venue.
+  // rateMin/rateMax are used for price-band filtering; rateDisplay shown in table.
   const hotels = [
     {
       name: "Delta Hotels Waltham Abbey",
@@ -687,7 +745,9 @@
       hoddesdonDisplay: "12 mins", hoddesdonSort: 12,
       celebrationDisplay: "8 mins", celebrationSort: 8,
       notes: "Best overall combination of quality, facilities and location",
-      badge: "Best Overall"
+      badge: "Best Overall",
+      rateDisplay: "£110–£200",
+      rateMin: 110, rateMax: 200, rateSort: 155
     },
     {
       name: "Premier Inn Waltham Abbey",
@@ -705,7 +765,9 @@
       hoddesdonDisplay: "12 mins", hoddesdonSort: 12,
       celebrationDisplay: "8 mins", celebrationSort: 8,
       notes: "Reliable and good value",
-      badge: "Best Value"
+      badge: "Best Value",
+      rateDisplay: "£70–£130",
+      rateMin: 70, rateMax: 130, rateSort: 100
     },
     {
       name: "The Ridings at Theobalds Estate",
@@ -723,7 +785,9 @@
       hoddesdonDisplay: "10 mins", hoddesdonSort: 10,
       celebrationDisplay: "12–15 mins", celebrationSort: 13.5,
       notes: "Boutique hotel with attractive grounds",
-      badge: "Boutique Choice"
+      badge: "Boutique Choice",
+      rateDisplay: "£120–£220",
+      rateMin: 120, rateMax: 220, rateSort: 170
     },
     {
       name: "Roydon Marina Village",
@@ -741,7 +805,9 @@
       hoddesdonDisplay: "10 mins", hoddesdonSort: 10,
       celebrationDisplay: "15 mins", celebrationSort: 15,
       notes: "Waterside setting, suitable for longer stays",
-      badge: ""
+      badge: "",
+      rateDisplay: "£110–£200",
+      rateMin: 110, rateMax: 200, rateSort: 155
     },
     {
       name: "YHA Lee Valley",
@@ -758,8 +824,10 @@
       hatfieldDisplay: "25 mins", hatfieldSort: 25,
       hoddesdonDisplay: "10 mins", hoddesdonSort: 10,
       celebrationDisplay: "15 mins", celebrationSort: 15,
-      notes: "Budget accommodation",
-      badge: "Budget Choice"
+      notes: "Budget accommodation — hostel-style with private rooms available",
+      badge: "Budget Choice",
+      rateDisplay: "£25–£50",
+      rateMin: 25, rateMax: 50, rateSort: 37
     },
     {
       name: "Travelodge Cheshunt",
@@ -777,7 +845,9 @@
       hoddesdonDisplay: "10 mins", hoddesdonSort: 10,
       celebrationDisplay: "15 mins", celebrationSort: 15,
       notes: "Budget-friendly option",
-      badge: ""
+      badge: "",
+      rateDisplay: "£60–£110",
+      rateMin: 60, rateMax: 110, rateSort: 85
     },
     {
       name: "West Lodge Park Hotel",
@@ -794,8 +864,50 @@
       hatfieldDisplay: "20 mins", hatfieldSort: 20,
       hoddesdonDisplay: "20 mins", hoddesdonSort: 20,
       celebrationDisplay: "25 mins", celebrationSort: 25,
-      notes: "Country house hotel and premium option",
-      badge: "Premium Choice"
+      notes: "Country house hotel — premium choice with restaurant and spa",
+      badge: "Premium Choice",
+      rateDisplay: "£140–£250+",
+      rateMin: 140, rateMax: 999, rateSort: 195
+    },
+    {
+      name: "The Comet London Hatfield",
+      rating: 4.3,
+      address: "St Albans Road West, Hatfield",
+      postcode: "AL10 9RH",
+      phoneDisplay: "01707 265411",
+      phoneTel: "+441707265411",
+      website: "https://www.thecometlondonhatfield.com",
+      websiteDisplay: "thecometlondonhatfield.com",
+      parking: "free",
+      parkingDisplay: "Free",
+      parkingNote: "On-site free parking",
+      hatfieldDisplay: "10 mins", hatfieldSort: 10,
+      hoddesdonDisplay: "25 mins", hoddesdonSort: 25,
+      celebrationDisplay: "30 mins", celebrationSort: 30,
+      notes: "4-star art deco hotel; closest option to the Service of Songs. Best suited to guests attending Thursday only or primarily",
+      badge: "",
+      rateDisplay: "£90–£160",
+      rateMin: 90, rateMax: 160, rateSort: 125
+    },
+    {
+      name: "Melbourne Lodge",
+      rating: 4.3,
+      address: "Brocket Park, Welwyn Garden City",
+      postcode: "AL8 7XG",
+      phoneDisplay: "01707 368 800",
+      phoneTel: "+441707368800",
+      website: "https://www.brocket-hall.co.uk",
+      websiteDisplay: "brocket-hall.co.uk",
+      parking: "free",
+      parkingDisplay: "Free",
+      parkingNote: "On-site free parking",
+      hatfieldDisplay: "15 mins", hatfieldSort: 15,
+      hoddesdonDisplay: "30 mins", hoddesdonSort: 30,
+      celebrationDisplay: "35 mins", celebrationSort: 35,
+      notes: "Boutique lodge within Brocket Hall estate — Georgian coach house, 16 rooms, countryside setting. Good for guests attending Thursday or seeking a quieter rural stay",
+      badge: "",
+      rateDisplay: "£120–£220",
+      rateMin: 120, rateMax: 220, rateSort: 170
     }
   ];
 
@@ -804,6 +916,7 @@
   const searchInput = document.getElementById('hotel-search');
   let sortState = { key: null, dir: 1 };
   let activeBadge = null;
+  let activePrice = null;
 
   function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -820,6 +933,15 @@
     return hotel.badge === badge;
   }
 
+  function matchesPrice(hotel, price) {
+    if (!price) return true;
+    if (price === 'under75') return hotel.rateMin < 75;
+    if (price === '75to125') return hotel.rateMin <= 125 && hotel.rateMax >= 75;
+    if (price === '125to200') return hotel.rateMin <= 200 && hotel.rateMax >= 125;
+    if (price === 'over200') return hotel.rateMax >= 200;
+    return true;
+  }
+
   function getSorted(list) {
     if (!sortState.key) return list;
     const key = sortState.key;
@@ -828,6 +950,7 @@
       let av, bv;
       if (key === 'name') { av = a.name.toLowerCase(); bv = b.name.toLowerCase(); }
       else if (key === 'rating') { av = a.rating; bv = b.rating; }
+      else if (key === 'rateSort') { av = a.rateSort; bv = b.rateSort; }
       else if (key === 'hatfield') { av = a.hatfieldSort; bv = b.hatfieldSort; }
       else if (key === 'hoddesdon') { av = a.hoddesdonSort; bv = b.hoddesdonSort; }
       else if (key === 'celebration') { av = a.celebrationSort; bv = b.celebrationSort; }
@@ -839,47 +962,52 @@
 
   function render() {
     const query = searchInput.value.trim();
-    let list = hotels.filter(h => matchesSearch(h, query) && matchesBadge(h, activeBadge));
+    let list = hotels.filter(h => matchesSearch(h, query) && matchesBadge(h, activeBadge) && matchesPrice(h, activePrice));
     list = getSorted(list);
 
     if (list.length === 0) {
-      const reason = activeBadge && query
-        ? `"${escapeHtml(query)}" with the "${escapeHtml(activeBadge)}" filter`
-        : activeBadge
-        ? `the "${escapeHtml(activeBadge)}" filter`
-        : `"${escapeHtml(query)}"`;
-      tbody.innerHTML = `<tr class="no-results-row"><td colspan="11">No hotels match ${reason}. Try a different name, postcode or area, or clear the filter.</td></tr>`;
+      const parts = [];
+      if (activeBadge) parts.push('"' + escapeHtml(activeBadge) + '"');
+      if (activePrice) parts.push('price filter');
+      if (query) parts.push('"' + escapeHtml(query) + '"');
+      const reason = parts.join(' + ') || 'those filters';
+      tbody.innerHTML = '<tr class="no-results-row"><td colspan="12">No hotels match ' + reason + '. Try a different name, postcode or area, or clear the filters.</td></tr>';
     } else {
-      tbody.innerHTML = list.map(h => `
-        <tr>
-          <td>
-            <span class="hotel-name">${escapeHtml(h.name)}</span>
-            ${h.badge ? `<span class="badge">${escapeHtml(h.badge)}</span>` : ''}
-          </td>
-          <td><span class="rating-val">${h.rating.toFixed(1)}</span>/5</td>
-          <td>${escapeHtml(h.address)}</td>
-          <td>${escapeHtml(h.postcode)}</td>
-          <td><a class="tel-link" href="tel:${h.phoneTel}">${escapeHtml(h.phoneDisplay)}</a></td>
-          <td><a class="site-link" href="${h.website}" target="_blank" rel="noopener">${escapeHtml(h.websiteDisplay)} ↗</a></td>
-          <td class="parking-cell">
-            <span class="${h.parking === 'free' ? 'parking-free' : h.parking === 'paid' ? 'parking-paid' : 'parking-unsure'}">${escapeHtml(h.parkingDisplay)}</span>
-            ${h.parkingNote ? `<span class="parking-note">${escapeHtml(h.parkingNote)}</span>` : ''}
-          </td>
-          <td class="drive-cell">${escapeHtml(h.hatfieldDisplay)}</td>
-          <td class="drive-cell">${escapeHtml(h.hoddesdonDisplay)}</td>
-          <td class="drive-cell">${escapeHtml(h.celebrationDisplay)}</td>
-          <td class="notes-cell">${escapeHtml(h.notes)}</td>
-        </tr>
-      `).join('');
+      tbody.innerHTML = list.map(h => {
+        const parkingClass = h.parking === 'free' ? 'parking-free' : h.parking === 'paid' ? 'parking-paid' : 'parking-unsure';
+        return '<tr>' +
+          '<td><span class="hotel-name">' + escapeHtml(h.name) + '</span>' +
+          (h.badge ? '<span class="badge">' + escapeHtml(h.badge) + '</span>' : '') + '</td>' +
+          '<td><span class="rating-val">' + h.rating.toFixed(1) + '</span>/5</td>' +
+          '<td>' + escapeHtml(h.rateDisplay) + '</td>' +
+          '<td>' + escapeHtml(h.address) + '</td>' +
+          '<td>' + escapeHtml(h.postcode) + '</td>' +
+          '<td><a class="tel-link" href="tel:' + h.phoneTel + '">' + escapeHtml(h.phoneDisplay) + '</a></td>' +
+          '<td><a class="site-link" href="' + h.website + '" target="_blank" rel="noopener">' + escapeHtml(h.websiteDisplay) + ' \u2197</a></td>' +
+          '<td class="parking-cell"><span class="' + parkingClass + '">' + escapeHtml(h.parkingDisplay) + '</span>' +
+          (h.parkingNote ? '<span class="parking-note">' + escapeHtml(h.parkingNote) + '</span>' : '') + '</td>' +
+          '<td class="drive-cell">' + escapeHtml(h.hatfieldDisplay) + '</td>' +
+          '<td class="drive-cell">' + escapeHtml(h.hoddesdonDisplay) + '</td>' +
+          '<td class="drive-cell">' + escapeHtml(h.celebrationDisplay) + '</td>' +
+          '<td class="notes-cell">' + escapeHtml(h.notes) + '</td>' +
+          '</tr>';
+      }).join('');
     }
 
-    let countText = activeBadge
-      ? `Showing ${list.length} of ${hotels.length} hotels — filtered to "${escapeHtml(activeBadge)}"`
-      : query
-      ? `Showing ${list.length} of ${hotels.length} hotels for "${escapeHtml(query)}"`
-      : `Showing all ${hotels.length} hotels`;
-    if (activeBadge) {
-      countText += ` <button type="button" class="clear-filter-link" id="clear-filter-btn">Clear filter</button>`;
+    const filterParts = [];
+    if (activeBadge) filterParts.push('"' + escapeHtml(activeBadge) + '"');
+    if (activePrice) {
+      const priceLabels = { under75: 'Under \u00a375', '75to125': '\u00a375\u2013\u00a3125', '125to200': '\u00a3125\u2013\u00a3200', over200: '\u00a3200+' };
+      filterParts.push(priceLabels[activePrice] || activePrice);
+    }
+    if (query) filterParts.push('"' + escapeHtml(query) + '"');
+
+    let countText;
+    if (filterParts.length > 0) {
+      countText = 'Showing ' + list.length + ' of ' + hotels.length + ' hotels \u2014 filtered by ' + filterParts.join(' &amp; ');
+      countText += ' <button type="button" class="clear-filter-link" id="clear-filter-btn">Clear all filters</button>';
+    } else {
+      countText = 'Showing all ' + hotels.length + ' hotels';
     }
     resultCount.innerHTML = countText;
 
@@ -887,13 +1015,14 @@
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
         setActiveBadge(null);
+        setActivePrice(null);
       });
     }
   }
 
   function setActiveBadge(badge) {
     activeBadge = badge;
-    document.querySelectorAll('.legend-row .badge').forEach(b => {
+    document.querySelectorAll('.legend-row .badge[data-filter]').forEach(b => {
       const isActive = b.dataset.filter === activeBadge;
       b.classList.toggle('active', isActive);
       b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
@@ -901,9 +1030,25 @@
     render();
   }
 
-  document.querySelectorAll('.legend-row .badge').forEach(btn => {
+  function setActivePrice(price) {
+    activePrice = price;
+    document.querySelectorAll('.legend-row .badge[data-price]').forEach(b => {
+      const isActive = b.dataset.price === activePrice;
+      b.classList.toggle('active', isActive);
+      b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    render();
+  }
+
+  document.querySelectorAll('.legend-row .badge[data-filter]').forEach(btn => {
     btn.addEventListener('click', () => {
       setActiveBadge(activeBadge === btn.dataset.filter ? null : btn.dataset.filter);
+    });
+  });
+
+  document.querySelectorAll('.legend-row .badge[data-price]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setActivePrice(activePrice === btn.dataset.price ? null : btn.dataset.price);
     });
   });
 
@@ -919,7 +1064,7 @@
       document.querySelectorAll('.sort-btn .arrow').forEach(a => a.textContent = '');
       document.querySelectorAll('th[id^="th-"]').forEach(th => th.removeAttribute('aria-sort'));
       const arrow = btn.querySelector('.arrow');
-      arrow.textContent = sortState.dir === 1 ? '▲' : '▼';
+      arrow.textContent = sortState.dir === 1 ? '\u25b2' : '\u25bc';
       btn.closest('th').setAttribute('aria-sort', sortState.dir === 1 ? 'ascending' : 'descending');
       render();
     });
