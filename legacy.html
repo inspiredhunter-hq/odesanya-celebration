@@ -41,7 +41,7 @@
     overflow-x: hidden;
   }
 
-  /* -- NAV -- */
+  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -81,7 +81,7 @@
   .nav-links a:hover { color: var(--gold); }
   .nav-links a.active { color: var(--gold); }
 
-  /* -- HERO -- */
+  /* ── HERO ── */
   .hero {
     min-height: 60vh;
     display: flex;
@@ -165,7 +165,7 @@
     margin: 0 auto;
   }
 
-  /* -- BOOK COVER -- */
+  /* ── BOOK COVER ── */
   .hero-cover {
     display: block;
     width: 300px;
@@ -196,7 +196,7 @@
     box-shadow: 0 14px 34px rgba(42,18,24,0.16);
   }
 
-  /* -- DOWNLOAD SECTION -- */
+  /* ── DOWNLOAD SECTION ── */
   .download {
     background: var(--warm-white);
     padding: 5rem 2rem;
@@ -274,7 +274,7 @@
     display: block;
   }
 
-  /* -- HARD COPY SECTION -- */
+  /* ── HARD COPY SECTION ── */
   .hardcopy {
     background: var(--purple);
     padding: 5rem 2rem;
@@ -335,7 +335,7 @@
     transform: translateY(-2px);
   }
 
-  /* -- ABOUT THE BOOK -- */
+  /* ── ABOUT THE BOOK ── */
   .about {
     background: var(--cream);
     padding: 5rem 2rem;
@@ -373,14 +373,14 @@
     border-radius: 2px;
   }
   .contents-list li::before {
-    content: 'u25C6';
+    content: '◆';
     color: var(--gold);
     font-size: 0.5rem;
     margin-top: 0.35rem;
     flex-shrink: 0;
   }
 
-  /* -- FOOTER -- */
+  /* ── FOOTER ── */
   footer {
     background: var(--text-dark);
     padding: 3rem 2rem;
@@ -486,11 +486,26 @@
       Download your free copy below, or share the link with anyone who knew her.
     </p>
 
+    <!--
+      INSTRUCTIONS:
+      When the PDF is ready:
+      1. Add the file to your GitHub repo (e.g. as /grandmas-legacy.pdf)
+      2. Remove the btn-coming-soon div below
+      3. Uncomment the btn-download anchor and update the href
+    -->
+
     <div class="btn-coming-soon">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;fill:currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 13.59V7a1 1 0 0 0-2 0v8.59l-2.3-2.3a1 1 0 0 0-1.4 1.42l4 4a1 1 0 0 0 1.4 0l4-4a1 1 0 0 0-1.4-1.42z"/></svg>
       Download Free PDF
     </div>
     <span class="coming-soon-note">Available from 4:00 pm, Friday 24 July 2026</span>
+
+    <!--
+    <a class="btn-download" href="grandmas-legacy.pdf" download>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 13.59V7a1 1 0 0 0-2 0v8.59l-2.3-2.3a1 1 0 0 0-1.4 1.42l4 4a1 1 0 0 0 1.4 0l4-4a1 1 0 0 0-1.4-1.42z"/></svg>
+      Download Free PDF
+    </a>
+    -->
 
   </div>
   </div>
@@ -505,6 +520,12 @@
       A beautifully printed paperback edition is available to order directly from Amazon.
       Ships worldwide. A permanent keepsake for your shelf, and a legacy for generations to come.
     </p>
+
+    <!--
+      INSTRUCTIONS:
+      When the book is live on Amazon KDP:
+      Update the href below with the Amazon product URL.
+    -->
 
     <a class="btn-amazon" href="#" onclick="return false;">
       Order on Amazon
@@ -524,9 +545,24 @@
     </p>
 
     <form id="notify-form" style="display:flex; flex-direction:column; gap:0.9rem; max-width:400px; margin:0 auto; text-align:left;">
-      <input type="text" id="notify-name" placeholder="Your name" style="padding:0.85rem 1rem; border:1px solid rgba(125,50,72,0.25); border-radius:2px; font-family:'Jost',sans-serif; font-size:0.88rem; background:var(--warm-white); color:var(--text-dark); outline:none;" />
-      <input type="email" id="notify-email" placeholder="Your email address" required style="padding:0.85rem 1rem; border:1px solid rgba(125,50,72,0.25); border-radius:2px; font-family:'Jost',sans-serif; font-size:0.88rem; background:var(--warm-white); color:var(--text-dark); outline:none;" />
-      <button type="submit" style="padding:1rem 2rem; background:var(--purple); color:#fff; border:none; border-radius:2px; font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; cursor:pointer; transition:background 0.2s;" onmouseover="this.style.background='#A85470'" onmouseout="this.style.background='#7D3248'">
+      <input
+        type="text"
+        id="notify-name"
+        placeholder="Your name"
+        style="padding:0.85rem 1rem; border:1px solid rgba(125,50,72,0.25); border-radius:2px; font-family:'Jost',sans-serif; font-size:0.88rem; background:var(--warm-white); color:var(--text-dark); outline:none;"
+      />
+      <input
+        type="email"
+        id="notify-email"
+        placeholder="Your email address"
+        required
+        style="padding:0.85rem 1rem; border:1px solid rgba(125,50,72,0.25); border-radius:2px; font-family:'Jost',sans-serif; font-size:0.88rem; background:var(--warm-white); color:var(--text-dark); outline:none;"
+      />
+      <button
+        type="submit"
+        style="padding:1rem 2rem; background:var(--purple); color:#fff; border:none; border-radius:2px; font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; cursor:pointer; transition:background 0.2s;"
+        onmouseover="this.style.background='#A85470'" onmouseout="this.style.background='#7D3248'"
+      >
         Notify Me
       </button>
     </form>
